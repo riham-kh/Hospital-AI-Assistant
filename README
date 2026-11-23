@@ -1,0 +1,37 @@
+
+# Hospital AI Assistant
+
+An AI-powered knowledge assistant designed to help
+hospital staff find information in internal documents.
+
+## Tech Stack
+- Python
+- FastAPI
+- PostgreSQL (planned)
+- RAG (planned)
+- OpenAI API (planned)
+
+## Current Features
+- REST API using FastAPI
+- GET and POST endpoints
+- Request validation using Pydantic
+
+## Setup
+
+1. Create a virtual environment:
+   python3 -m venv .venv
+
+2. Activate it:
+   source .venv/bin/activate
+
+3. Install dependencies:
+   pip install -r requirements.txt
+
+4. Start the server:
+   fastapi dev main.py
+
+5. Open:
+   http://127.0.0.1:8000/docs
+
+## Project Status
+Phase 1 complete — Backend API foundation.
