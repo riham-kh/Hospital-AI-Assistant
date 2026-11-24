@@ -1,6 +1,7 @@
 
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
+from ai_service import generate_answer
 
 app = FastAPI(title="Hospital Knowledge Assistant")
 
@@ -16,7 +17,15 @@ def home():
 
 @app.post("/ask")
 def ask_question(request: QuestionRequest):
+    if not request.question.strip():
+        raise HTTPException(
+            status_code=400,
+            detail="Question cannot be empty"
+        )
+
+    answer = generate_answer(request.question)
+
     return {
         "question": request.question,
-        "answer": "This is a placeholder answer. AI coming soon!"
+        "answer": answer
     }
